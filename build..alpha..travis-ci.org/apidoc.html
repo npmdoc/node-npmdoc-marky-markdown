@@ -1,0 +1,431 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/npm/marky-markdown"
+
+    >marky-markdown (v9.0.2)</a>
+</h1>
+<h4>npm's markdown parser</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.marky-markdown">module marky-markdown</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.marky-markdown.parsePackageDescription">
+            function <span class="apidocSignatureSpan">marky-markdown.</span>parsePackageDescription
+            <span class="apidocSignatureSpan">(description)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.marky-markdown.render">
+            function <span class="apidocSignatureSpan">marky-markdown.</span>render
+            <span class="apidocSignatureSpan">(html, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">marky-markdown.</span>token_util</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.marky-markdown.render">module marky-markdown.render</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.marky-markdown.render.render">
+            function <span class="apidocSignatureSpan">marky-markdown.</span>render
+            <span class="apidocSignatureSpan">(html, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.marky-markdown.render.renderPackageDescription">
+            function <span class="apidocSignatureSpan">marky-markdown.render.</span>renderPackageDescription
+            <span class="apidocSignatureSpan">(description)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.marky-markdown.token_util">module marky-markdown.token_util</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.marky-markdown.token_util.getText">
+            function <span class="apidocSignatureSpan">marky-markdown.token_util.</span>getText
+            <span class="apidocSignatureSpan">(token)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.marky-markdown.token_util.isText">
+            function <span class="apidocSignatureSpan">marky-markdown.token_util.</span>isText
+            <span class="apidocSignatureSpan">(token)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.marky-markdown.token_util.set">
+            function <span class="apidocSignatureSpan">marky-markdown.token_util.</span>set
+            <span class="apidocSignatureSpan">(TokenConstructor)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.marky-markdown.token_util.unemoji">
+            function <span class="apidocSignatureSpan">marky-markdown.token_util.</span>unemoji
+            <span class="apidocSignatureSpan">(token)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.marky-markdown" id="apidoc.module.marky-markdown">module marky-markdown</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.marky-markdown.parsePackageDescription" id="apidoc.element.marky-markdown.parsePackageDescription">
+        function <span class="apidocSignatureSpan">marky-markdown.</span>parsePackageDescription
+        <span class="apidocSignatureSpan">(description)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parsePackageDescription = function (description) {
+  return sanitize(render.renderPackageDescription(description))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.marky-markdown.render" id="apidoc.element.marky-markdown.render">
+        function <span class="apidocSignatureSpan">marky-markdown.</span>render
+        <span class="apidocSignatureSpan">(html, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">render = function (html, options) {
+  var mdOptions = {
+    html: true,
+    langPrefix: &#x27;highlight &#x27;,
+    linkify: options.linkify
+  }
+
+  if (options.highlightSyntax) {
+    mdOptions.highlight = function (code, lang) {
+      return highlighter.highlightSync({
+        fileContents: code,
+        scopeName: scopeNameFromLang(highlighter, lang)
+      })
+    }
+  }
+
+  var parser = MD(mdOptions)
+    .use(lazyHeaders)
+    .use(emoji, {shortcuts: {}})
+    .use(expandTabs, {tabWidth: 4})
+    .use(githubTaskList)
+    .use(headingLinks, options)
+    .use(githubHeadings)
+    .use(relaxedLinkRefs)
+    .use(gravatar)
+    .use(github, {package: options.package})
+    .use(youtube)
+    .use(badges)
+    .use(packagize, {package: options.package})
+
+  if (options.highlightSyntax) parser.use(codeWrap)
+  if (options.serveImagesWithCDN) parser.use(cdnImages, {package: options.package})
+
+  return githubLinkify(parser).render(html)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    .use(youtube)
+    .use(badges)
+    .use(packagize, {package: options.package})
+
+  if (options.highlightSyntax) parser.use(codeWrap)
+  if (options.serveImagesWithCDN) parser.use(cdnImages, {package: options.package})
+
+  return githubLinkify(parser).<span class="apidocCodeKeywordSpan">render</span>(html)
+}
+
+var mappings = {
+  sh: &#x27;source.shell&#x27;,
+  markdown: &#x27;source.gfm&#x27;,
+  erb: &#x27;text.html.erb&#x27;
+}
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.marky-markdown.render" id="apidoc.module.marky-markdown.render">module marky-markdown.render</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.marky-markdown.render.render" id="apidoc.element.marky-markdown.render.render">
+        function <span class="apidocSignatureSpan">marky-markdown.</span>render
+        <span class="apidocSignatureSpan">(html, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">render = function (html, options) {
+  var mdOptions = {
+    html: true,
+    langPrefix: &#x27;highlight &#x27;,
+    linkify: options.linkify
+  }
+
+  if (options.highlightSyntax) {
+    mdOptions.highlight = function (code, lang) {
+      return highlighter.highlightSync({
+        fileContents: code,
+        scopeName: scopeNameFromLang(highlighter, lang)
+      })
+    }
+  }
+
+  var parser = MD(mdOptions)
+    .use(lazyHeaders)
+    .use(emoji, {shortcuts: {}})
+    .use(expandTabs, {tabWidth: 4})
+    .use(githubTaskList)
+    .use(headingLinks, options)
+    .use(githubHeadings)
+    .use(relaxedLinkRefs)
+    .use(gravatar)
+    .use(github, {package: options.package})
+    .use(youtube)
+    .use(badges)
+    .use(packagize, {package: options.package})
+
+  if (options.highlightSyntax) parser.use(codeWrap)
+  if (options.serveImagesWithCDN) parser.use(cdnImages, {package: options.package})
+
+  return githubLinkify(parser).render(html)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    .use(youtube)
+    .use(badges)
+    .use(packagize, {package: options.package})
+
+  if (options.highlightSyntax) parser.use(codeWrap)
+  if (options.serveImagesWithCDN) parser.use(cdnImages, {package: options.package})
+
+  return githubLinkify(parser).<span class="apidocCodeKeywordSpan">render</span>(html)
+}
+
+var mappings = {
+  sh: &#x27;source.shell&#x27;,
+  markdown: &#x27;source.gfm&#x27;,
+  erb: &#x27;text.html.erb&#x27;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.marky-markdown.render.renderPackageDescription" id="apidoc.element.marky-markdown.render.renderPackageDescription">
+        function <span class="apidocSignatureSpan">marky-markdown.render.</span>renderPackageDescription
+        <span class="apidocSignatureSpan">(description)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">renderPackageDescription = function (description) {
+  return MD({html: true}).renderInline(description)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    html = sanitize(html)
+  }
+
+  return html
+}
+
+marky.parsePackageDescription = function (description) {
+  return sanitize(render.<span class="apidocCodeKeywordSpan">renderPackageDescription</span>(description))
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.marky-markdown.token_util" id="apidoc.module.marky-markdown.token_util">module marky-markdown.token_util</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.marky-markdown.token_util.getText" id="apidoc.element.marky-markdown.token_util.getText">
+        function <span class="apidocSignatureSpan">marky-markdown.token_util.</span>getText
+        <span class="apidocSignatureSpan">(token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getText(token) {
+  var text = token.type === &#x27;text&#x27; ? token.content : &#x27;&#x27;
+  if (token.children &#x26;&#x26; token.children.length) {
+    text += token.children.reduce(function (previous, current) {
+      return previous + (token.type !== &#x27;image&#x27; ? getText(current) : &#x27;&#x27;)
+    }, &#x27;&#x27;)
+  }
+  return text
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.marky-markdown.token_util.isText" id="apidoc.element.marky-markdown.token_util.isText">
+        function <span class="apidocSignatureSpan">marky-markdown.token_util.</span>isText
+        <span class="apidocSignatureSpan">(token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isText(token) {
+  var containsTextTokens = false
+  if (token.children &#x26;&#x26; token.children.length) {
+    containsTextTokens = token.type !== &#x27;image&#x27; &#x26;&#x26; token.children.some(isText)
+  }
+  return containsTextTokens || token.type === &#x27;text&#x27;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.marky-markdown.token_util.set" id="apidoc.element.marky-markdown.token_util.set">
+        function <span class="apidocSignatureSpan">marky-markdown.token_util.</span>set
+        <span class="apidocSignatureSpan">(TokenConstructor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (TokenConstructor) {
+  Token = TokenConstructor
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return text.charAt(0) === &#x27;(&#x27; &#x26;&#x26; text.charAt(text.length - 1) === &#x27;)&#x27;
+}
+
+module.exports = function (parser) {
+  if (parser) {
+var linkify = parser.linkify
+
+linkify.<span class="apidocCodeKeywordSpan">set</span>({fuzzyLink: false}) // turn off auto-linking normal hostnames
+linkify.add(&#x27;//&#x27;, null) // turn off protocol-relative links
+
+// linkify everything hostnamey starting with &#x27;www.&#x27;, optionally in [] or ()
+var scheme = {
+  validate: function (text, pos, self) {
+    if (!self.re.githubLinkify) {
+      self.re.githubLinkify = new RegExp(&#x27;^&#x27; + self.re.src_host_port_strict + self.re.src_path, &#x27;i&#x27;)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.marky-markdown.token_util.unemoji" id="apidoc.element.marky-markdown.token_util.unemoji">
+        function <span class="apidocSignatureSpan">marky-markdown.token_util.</span>unemoji
+        <span class="apidocSignatureSpan">(token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unemoji = function (token) {
+  if (token.type === &#x27;emoji&#x27;) {
+    return assign(new Token(), token, {content: token.markup})
+  }
+  return token
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
