@@ -47,12 +47,21 @@
 }
 </style>
 <h1>api documentation for
-    <a href="https://github.com/npm/marky-markdown">marky-markdown (v9.0.2)</a>
+    <a href="https://github.com/npm/marky-markdown">marky-markdown (v9.0.3)</a>
 </h1>
 <h4>npm's markdown parser</h4>
 <div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.marky-markdown">module marky-markdown</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.marky-markdown.marky-markdown">
+            function <span class="apidocSignatureSpan"></span>marky-markdown
+            <span class="apidocSignatureSpan">(markdown, options)</span>
+            </a>
+
+        </li>
 
         <li>
 
@@ -146,6 +155,55 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.marky-markdown" id="apidoc.module.marky-markdown">module marky-markdown</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.marky-markdown.marky-markdown" id="apidoc.element.marky-markdown.marky-markdown">
+        function <span class="apidocSignatureSpan"></span>marky-markdown
+        <span class="apidocSignatureSpan">(markdown, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">marky-markdown = function (markdown, options) {
+  var html
+
+  if (typeof markdown !== 'string') {
+    throw Error('first argument must be a string')
+  }
+
+  options = options || {}
+  defaults(options, {
+    sanitize: true,
+    linkify: true,
+    highlightSyntax: true,
+    prefixHeadingIds: true,
+    enableHeadingLinkIcons: true,
+    serveImagesWithCDN: false,
+    debug: false,
+    package: null
+  })
+
+  var log = function (msg) {
+    if (options.debug) {
+      console.log('marky-markdown: ' + msg)
+    }
+  }
+
+  log('\n\n' + markdown + '\n\n')
+
+  log('Parse markdown into HTML and add syntax highlighting')
+  html = render(markdown, options)
+
+  if (options.sanitize) {
+    log('Sanitize malicious or malformed HTML')
+    html = sanitize(html, options)
+  }
+
+  return html
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
@@ -307,7 +365,7 @@ var mappings = {
   return MD({html: true}).renderInline(description)
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    html = sanitize(html)
+    html = sanitize(html, options)
   }
 
   return html
